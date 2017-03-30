@@ -1,5 +1,6 @@
 import React from 'react';
 import Songs from './Songs'
+import SongSelector from './SongSelector'
 
 export default class SinglePlaylist extends React.Component {
   constructor (props){
@@ -31,6 +32,7 @@ export default class SinglePlaylist extends React.Component {
         <Songs songs={playlist.songs} /> {/** Hooray for reusability! */}
         {playlist.songs && !playlist.songs.length && <small>No songs.</small>}
         <hr />
+        <SongSelector />
       </div>
 
   )
