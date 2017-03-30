@@ -14,9 +14,16 @@ export default class SinglePlaylist extends React.Component {
     selectPlaylist(playlistId);
   }
 
-  render() {
+  componentWillReceiveProps(nextProps) {
+    const selectPlaylist = this.props.selectPlaylist;
+    if (nextProps.routeParams.playlistId !== this.props.routeParams.playlistId) {
+      selectPlaylist(nextProps.routeParams.playlistId)
+    }
+  }
+
+  render(){
   const playlist = this.props.selectedPlaylist;
-  
+
   return (
     
       <div>

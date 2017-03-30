@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Artists from '../components/Artists';
 import NewPlayList from '../components/NewPlayList'
 import axios from 'axios'
+import { browserHistory } from 'react-router'
 
-export default class PlayListContainer extends Component {
+export default class NewPlayListContainer extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -14,15 +15,19 @@ export default class PlayListContainer extends Component {
     }
 
     handleSubmit(e) {
+      let id;
       axios.post('/api/playlists/', { name: this.state.inputValue })
         .then(res => res.data)
         .then(result => {
-          console.log(result) // response json from the server!
+          id = result.id
+					const path = `/playlists/${id}`
+					browserHistory.push(path)
         });
 
       this.setState({
         inputValue: ''
       })
+			console.log(id)
       e.preventDefault();
     }
 
