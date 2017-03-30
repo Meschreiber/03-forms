@@ -17,14 +17,26 @@ const Sidebar = (props) => {
         </h4>
       </section>
       <hr />
-        <section>
-          <h4 className="text-muted">PLAYLISTS</h4>
-          <h4>
-            <Link className="btn btn-primary btn-block" to={`/playlists`}>
-              <span className="glyphicon glyphicon-plus"></span> PLAYLIST
+      <section>
+        <h4 className="text-muted">PLAYLISTS</h4>
+        <hr />
+        <ul className="list-unstyled">
+        {props.playlists.map((playlist) => {
+          console.log(playlist.name)
+          return (
+            <li className="playlist-item menu-item" key={playlist.id}>
+            <Link to="FILL_ME_IN">{playlist.name}</Link>
+            </li>
+        )
+        }
+          )}
+        </ul>
+        <h4>
+          <Link className="btn btn-primary btn-block" to={`/playlists`}>
+            <span className="glyphicon glyphicon-plus"></span> PLAYLIST
             </Link>
-          </h4>
-        </section>
+        </h4>
+      </section>
     </sidebar>
   );
 }

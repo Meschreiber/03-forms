@@ -14,16 +14,8 @@ export default class PlayListContainer extends Component {
     }
 
     handleSubmit(e) {
-      axios.post('/api/playlists/', { name: this.state.inputValue })
-        .then(res => res.data)
-        .then(result => {
-          console.log(result) // response json from the server!
-        });
-
-      this.setState({
-        inputValue: ''
-      })
-      e.preventDefault();
+        this.props.addPlaylist(this.state.inputValue)
+        e.preventDefault();
     }
 
     handleChange(e){
