@@ -25,9 +25,9 @@ const Sidebar = (props) => {
           console.log(playlist.name)
           return (
             <li className="playlist-item menu-item" key={playlist.id}>
-            <Link to="FILL_ME_IN">{playlist.name}</Link>
+            <Link to={`/playlists/${playlist.id}`}>{playlist.name}</Link>
             </li>
-        )
+          )
         }
           )}
         </ul>
